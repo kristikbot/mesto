@@ -1,0 +1,7 @@
+.profile__edit-btn {
+    background-image: url(../../../images/Edit\ Button.svg);
+    height: 24px;
+    width: 24px;
+    border: none;
+    background-color: rgb(0, 0, 0);
+}
