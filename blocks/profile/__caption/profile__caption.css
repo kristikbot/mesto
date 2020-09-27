@@ -7,3 +7,12 @@
     color: #FFFFFF;
     margin: 16px 0 0 0;
 }
+
+@media screen and (max-width: 768px) {
+    .profile__caption {
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        margin: 14px 0 0 0;
+    }
+}
