@@ -1,7 +1,7 @@
 .element__like {
     background-image: url(../../../images/like.svg);
-    height: 20.76px;
-    width: 18.13px;
+    height: 18.13px;
+    width: 20.76px;
     border: none;
     outline: none;
     padding: 0;
@@ -9,5 +9,6 @@
     background-color: #FFFFFF;
     background-repeat: no-repeat;
     background-size: contain;
+    margin-right: 22.24px;
   
 }
