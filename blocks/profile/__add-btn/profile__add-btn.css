@@ -9,6 +9,13 @@
     font-size: 30px;
 }
 
+.profile__add-btn:hover {
+    opacity: 0.6;
+    cursor: pointer;
+    transition: ease-in-out;
+
+}
+
 @media screen and (max-width: 900px) {
     .profile__add-btn {
         width: 282px;

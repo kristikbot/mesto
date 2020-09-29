@@ -10,4 +10,5 @@
 .profile__edit-btn:hover{
     opacity: 0.5;
     cursor: pointer;
+    transition: ease-in-out;
 }
