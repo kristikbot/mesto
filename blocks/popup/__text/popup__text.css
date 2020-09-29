@@ -19,3 +19,13 @@
 .popup__text::placeholder {
     color: rgba(0, 0, 0, 0.5);
   }
+
+
+  @media screen and (max-width: 425px) {
+    .popup__text{
+        max-width: 238px;
+
+    }
+  }
+
+  

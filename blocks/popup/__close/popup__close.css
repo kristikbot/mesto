@@ -5,3 +5,11 @@
     width: 40.7px;
     height: 40.7px;
 }
+
+@media screen and (max-width: 425px){
+    .popup__close {
+        right:0;
+        width: 26px;
+        height: 26px;
+    }
+}
