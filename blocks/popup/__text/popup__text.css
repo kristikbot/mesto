@@ -1,2 +1,21 @@
-@import url(./-about/popup__text-about.css);
-@import url(./-name/popup__text-name.css);
+@import url(./_about/popup__text_about.css);
+@import url(./_name/popup__text_name.css);
+
+.popup__text {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    border: none;
+    border-bottom: 1px solid;
+    padding-bottom: 13.26px;
+    box-sizing: border-box;
+    max-width: 358px;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.popup__text::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
