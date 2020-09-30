@@ -18,5 +18,5 @@
     display: none;
     align-items: center;
     justify-content: center;
-    
+    transition: visibility 0.3s, opacity 0.3s linear;
 }

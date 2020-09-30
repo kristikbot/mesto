@@ -11,6 +11,7 @@ const inputAbout = document.querySelector('.popup__input_about');
 const buttonSave = popup.querySelector(".popup__save");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__caption");
+const profileContainer = document.querySelector(".profile__info-container");
 
 //функция открытия попап
 function openPopup() {
@@ -34,16 +35,25 @@ function openFormHandler() {
 }
 openFormHandler();
 
+// Находим форму в DOM
+let formElement = popup.querySelector(".popup__form"); 
+// Обработчик «отправки» формы, 
+function formSubmitHandler (evt) {
+    evt.preventDefault(); 
 
-function handlePopupSubmit(evt) {
-    evt.preventDefault();
+    // Находим поля формы в DOM
+    let inputName = document.querySelector('.popup__input_name');
+    let inputAbout = document.querySelector('.popup__input_about'); 
+
+    // Получите значение полей из свойства value
+    // Выберите элементы, куда должны быть вставлены значения полей
+    // Вставьте новые значения с помощью textContent
+
     profileName.textContent = inputName.value;
     profileAbout.textContent = inputAbout.value;
-    closePopup(popupProfile);
+    closePopup(formElement);
 }
-
-/*
-
+formElement.addEventListener('submit', formSubmitHandler); 
 
 /*
 const popupToggle = () => {
@@ -54,6 +64,13 @@ const popupToggle = () => {
 buttonOpenEdit.addEventListener("click", popupToggle)
 buttonCloseEdit.addEventListener("click", popupToggle)
 
+
+inputName.value = profileName.textContent;
+inputAbout.value = profileAbout.textContent;
+
+profileContainer.innerHTML(`
+    <h1 class="profile__name">${inputName.value}</h1>
+    <p class="profile__caption">${inputAbout.value}</p>`);
 
 function addSong() {
     let artist = document.querySelector('.input__text_type_artist');
