@@ -2,9 +2,9 @@
 @import url(./__form/popup__form.css);
 @import url(./__close/popup__close.css);
 @import url(./__title/popup__title.css);
-@import url(./__text/popup__text.css);
+@import url(./__input/popup__input.css);
 @import url(./__save/popup__save.css);
-@import url(./__opened/popup__opened.css);
+@import url(./_opened/popup_opened.css);
 
 .popup {
     position: fixed;
@@ -18,4 +18,5 @@
     display: none;
     align-items: center;
     justify-content: center;
+    
 }

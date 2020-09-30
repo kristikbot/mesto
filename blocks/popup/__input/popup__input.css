@@ -1,7 +1,7 @@
-@import url(./_about/popup__text_about.css);
-@import url(./_name/popup__text_name.css);
+@import url(./_about/popup__input_about.css);
+@import url(./_name/popup__input_name.css);
 
-.popup__text {
+.popup__input {
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
@@ -16,13 +16,13 @@
     border-color: rgba(0, 0, 0, 0.2);
 }
 
-.popup__text::placeholder {
+.popup__input::placeholder {
     color: rgba(0, 0, 0, 0.5);
   }
 
 
   @media screen and (max-width: 425px) {
-    .popup__text{
+    .popup__input{
         max-width: 238px;
 
     }
