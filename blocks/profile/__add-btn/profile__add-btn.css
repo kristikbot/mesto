@@ -1,10 +1,13 @@
 .profile__add-btn {
+    background-image: url(../../../images/Add-btn.svg);
+    background-repeat: no-repeat;
+    background-position: center;
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 2px;
     height: 50px;
     min-width: 150px;
-    background-color: rgb(0, 0, 0);
+    background-color: transparent;
     color: #FFFFFF;
     font-size: 30px;
 }
