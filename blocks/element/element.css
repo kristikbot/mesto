@@ -4,12 +4,13 @@
 @import url(./__card/element__card.css);
 
 .element{
+ font-family: 'Inter', Arial, sans-serif;
  background-color: rgb(255, 255, 255);
  border-radius: 2.5%;
- max-height: 361px;
  text-overflow: ellipsis;
  white-space: nowrap;
  overflow: hidden;
+ 
 
  
 }
