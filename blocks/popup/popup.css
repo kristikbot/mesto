@@ -19,3 +19,18 @@
     justify-content: center;
     transition: visibility 0.3s, opacity 0.3s linear;
 }
+
+.popup__container{
+    background: #FFFFFF;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    max-width: 430px;
+}
+
+@media screen and (max-width: 425px){
+    .popup__container{
+        max-width: 282px;
+    }
