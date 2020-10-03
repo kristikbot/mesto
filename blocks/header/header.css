@@ -1,22 +1,16 @@
 @import url(./__logo/header__logo.css);
 
 .header{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    /*max-width: 882px;*/
-    max-width: 68%;
-    min-height: 74px;
+    max-width: 882px;
     margin: 0 auto;
     padding-top: 45px;
     border-bottom: 1px solid #545454;
     
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     .header{
-        max-width: 100%;
+        width:100%;
         padding-top: 28px;
         min-height: 56px;
     }
