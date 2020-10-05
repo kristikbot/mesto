@@ -6,13 +6,11 @@
     line-height: 56px;
     color: #FFFFFF;
     margin: 0;
-   
+    vertical-align: sub;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    vertical-align: sub;
-   
-    
+    max-width: 295px;
 }
 
 @media screen and (max-width: 900px) {
