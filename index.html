@@ -29,7 +29,7 @@
         <!-- Места -->
         <section>
             <ul class="elements">
-                <li class="element">
+                <!--  <li class="element">
                     <img src="./images/place1.png" alt="Мандалай" class="element__image">
                     <div class="element__card">
                         <h2 class="element__title">Мандалай</h2>
@@ -70,7 +70,7 @@
                         <h2 class="element__title">Токио</h2>
                         <button type="button" class="element__like" aria-label="Нравится"></button>
                     </div>
-                </li>
+                </li>-->
           </ul>
         </section>
          
@@ -80,20 +80,26 @@
         </footer>
         <!-- Попап -->
 
-        <div class="popup">
-            <!--<div class="popup__container"></div>  -->
-                             
-                    <form class="popup__form" autocomplete="off" name="Профиль">
-                        <button type="button" aria-label="Закрыть" class="popup__close"></button>  
-                      <h2 class="popup__title">Редактировать профиль</h2>
-                      <input id="name" name="name" type="text" placeholder="Имя" class="popup__input popup__input-name" required>
-                      <input id="about" name="about" type="text" placeholder="О себе" class="popup__input popup__input-about" required>
-                      <button class="popup__save"  type="submit" aria-label="Сохранить">Сохранить</button>
-                    </form>
-                
-            <!--</div>  -->
+        <div class="popup">               
+            <form class="popup__form" autocomplete="off" name="Профиль">
+                <button type="button" aria-label="Закрыть" class="popup__close"></button>  
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input id="name" name="name" type="text" placeholder="Имя" class="popup__input popup__input-name" required>
+                <input id="about" name="about" type="text" placeholder="О себе" class="popup__input popup__input-about" required>
+                <button class="popup__save"  type="submit" aria-label="Сохранить">Сохранить</button>
+            </form>
         </div>
-
+<!--  
+        <div class="popup">
+            <form class="popup__form" autocomplete="off" name="Карточки">
+              <button type="button" aria-label="Закрыть" class="popup__close"></button>  
+              <h2 class="popup__title">Новое место</h2>
+              <input id="name" name="name" type="text" placeholder="Название" class="popup__input popup__input-name" required>
+              <input id="about" name="about" type="link" placeholder="Ссылка на картинку" class="popup__input popup__input-about" required>
+              <button class="popup__save"  type="submit" aria-label="Создать">Создать</button>
+            </form>
+        </div>
+-->
 
     </div>
     <script src="./scripts/script.js"></script>
