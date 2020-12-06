@@ -47,10 +47,12 @@ function formSubmitHandler (evt) {
 formElement.addEventListener('submit', formSubmitHandler); 
 
 
-/*
-//форма попап
+
+// попап карточки 
 const buttonNewCard = document.querySelector(".profile__add-btn");
-buttonNewCard.addEventListener("click", openPopup);*/
+buttonNewCard.addEventListener("click", openPopup);
+
+//добавление карточки
 
 
 const initialCards = [
