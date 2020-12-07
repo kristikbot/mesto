@@ -1,32 +1,53 @@
 
-//открытие попап
+//профиль попапа
 const buttonOpenEdit = document.querySelector(".profile__edit-btn");
-const buttonCloseEdit = document.querySelector(".popup__close");
+const buttonCloseEdit = document.querySelector("#popup-profile-close");
 const popup = document.querySelector(".popup");
-
-
-//значение формы
-const popupForm = popup.querySelector(".popup__form");
+const popupForm = popup.querySelector(".edit-profile");
 const inputName = document.querySelector('.popup__input-name');
 const inputAbout = document.querySelector('.popup__input-about');
 const buttonSave = popup.querySelector(".popup__save");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__caption");
 const profileContainer = document.querySelector(".profile__info-container");
+const editProfilePopup = document.querySelector(".popup-profile");
 
-//функция открытия попап
-function openPopup() {
+//карточка попап
+const addButton = document.querySelector(".profile__add-btn");
+const buttonCloseCard = document.querySelector("#popup-cards-close");
+const addCardPopup = document.querySelector(".popup-card");
+
+
+const inputPlace = document.querySelector("#card-name");
+const inputLink = document.querySelector("#link");
+const buttonSubmit =popup.querySelector("#card-submit");
+
+function popupOpen(popup) {
+  popup.classList.add('popup_opened');
+}
+buttonOpenEdit.addEventListener('click', ()=>popupOpen(editProfilePopup));
+addButton.addEventListener('click', ()=>popupOpen(addCardPopup));
+
+//функция открытия попап профиль
+/*function openPopup() {
   openFormHandler();
   popup.classList.add("popup_opened");
 }
-buttonOpenEdit.addEventListener("click", openPopup);
+buttonOpenEdit.addEventListener("click", openPopup);*/
 
 
-//функция закрытия попап
+
+//функция закрытия попап профиля
 function closePopup() {
   popup.classList.remove("popup_opened");
 }
 buttonCloseEdit.addEventListener("click", closePopup);
+
+//функция закрытия попап карты
+function closePopupCard() {
+  popup.classList.remove("popup_opened");
+}
+buttonCloseCard.addEventListener("click", closePopupCard);
 
 //функция которая связывает значение профиля с формой
 function openFormHandler() {
@@ -47,11 +68,11 @@ function formSubmitHandler (evt) {
 formElement.addEventListener('submit', formSubmitHandler); 
 
 
-
+/*
 // попап карточки 
 const buttonNewCard = document.querySelector(".profile__add-btn");
-buttonNewCard.addEventListener("click", openPopup);
-
+buttonNewCard.addEventListener("click", openPopupProfile);
+*/
 //добавление карточки
 
 
