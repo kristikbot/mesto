@@ -16,38 +16,26 @@ const editProfilePopup = document.querySelector(".popup-profile");
 const addButton = document.querySelector(".profile__add-btn");
 const buttonCloseCard = document.querySelector("#popup-cards-close");
 const addCardPopup = document.querySelector(".popup-card");
-
-
 const inputPlace = document.querySelector("#card-name");
 const inputLink = document.querySelector("#link");
 const buttonSubmit =popup.querySelector("#card-submit");
 
+
+//функция открытия попап профиля
 function popupOpen(popup) {
+  openFormHandler();
   popup.classList.add('popup_opened');
 }
 buttonOpenEdit.addEventListener('click', ()=>popupOpen(editProfilePopup));
 addButton.addEventListener('click', ()=>popupOpen(addCardPopup));
 
-//функция открытия попап профиль
-/*function openPopup() {
-  openFormHandler();
-  popup.classList.add("popup_opened");
-}
-buttonOpenEdit.addEventListener("click", openPopup);*/
-
-
 
 //функция закрытия попап профиля
-function closePopup() {
-  popup.classList.remove("popup_opened");
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
-buttonCloseEdit.addEventListener("click", closePopup);
-
-//функция закрытия попап карты
-function closePopupCard() {
-  popup.classList.remove("popup_opened");
-}
-buttonCloseCard.addEventListener("click", closePopupCard);
+buttonCloseEdit.addEventListener("click", ()=> closePopup(editProfilePopup));
+buttonCloseCard.addEventListener("click", ()=> closePopup(addCardPopup));
 
 //функция которая связывает значение профиля с формой
 function openFormHandler() {
