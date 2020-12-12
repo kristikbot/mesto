@@ -42,8 +42,6 @@ function openFormHandler() {
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
 }
-
-
 // Находим форму в DOM
 let formElement = popup.querySelector(".popup__form"); 
 // Обработчик «отправки» формы, 
@@ -54,14 +52,6 @@ function formSubmitHandler (evt) {
     closePopup();
 }
 formElement.addEventListener('submit', formSubmitHandler); 
-
-
-/*
-// попап карточки 
-const buttonNewCard = document.querySelector(".profile__add-btn");
-buttonNewCard.addEventListener("click", openPopupProfile);
-*/
-//добавление карточки
 
 
 const initialCards = [
@@ -92,7 +82,38 @@ const initialCards = [
 ]; 
 
 const listElements = document.querySelector('.elements');
+const templateCard = document.querySelector('#templateCards');
 
+//отрисовка дефолтных карточек 
+function rederCardList() {
+  const cardItems = initialCards.map(composeCard);
+  listElements.append(...cardItems);
+};
+
+//формируем карточку 
+function composeCard({name, link})  {
+  const newItem =  templateCard.content.cloneNode(true);
+  const cardTitle = newItem.querySelector(".element__title");
+  const cardImage = newItem.querySelector(".element__image");
+  const cardLike = newItem.querySelector(".element__like");
+  //card cardDeleteBtn = 
+  cardTitle.textContent = name;
+  cardImage.src = link;
+  cardImage.alt = name;
+  //попап открытия фото
+  return newItem;
+};
+
+rederCardList();
+
+
+
+
+
+
+
+
+/*
 function renderList() {
   let newHTML = ' ';
 
@@ -109,7 +130,7 @@ function renderList() {
 }
 renderList();
 
-/*
+
 
 const initialCards = [
   {
