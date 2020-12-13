@@ -1,4 +1,4 @@
-# Проект 4: Место
+# Проект 5: Место
 
 ### Обзор
 * О Проекте
@@ -16,7 +16,7 @@
 
 popup window
 form/submit
-JavaScript
+JavaScript (array, map, remove, closest, eventlistener, functions)
 flexbox;
 grid layout;
 псевдоклассы;
@@ -27,7 +27,7 @@ grid layout;
 Работа над проектом велась с использованием макета из графического редактора Figma.
 Оптимизация изображений
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
+* [Ссылка на макет в Figma](https://www.figma.com/file/nlYpT4VhFiwimn2YlncrcF/JavaScript.-Sprint-5?node-id=0%3A1)
 
 **Инструкция по использованию**
 Языки: JavaScript, CSS, HTML
