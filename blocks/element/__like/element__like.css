@@ -1,3 +1,5 @@
+@import url(./element__like-active.css);
+
 .element__like {
     background-image: url(../../../images/like.svg);
     height: 18.13px;

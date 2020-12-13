@@ -105,6 +105,9 @@ function composeCard({name, link})  {
   cardImage.alt = name;
   //попап открытия фото
   //лайк
+  cardLike.addEventListener("click", () => {
+    cardLike.classList.toggle("element__like-active");
+  });
   //удаление
   return newItem;
 };
