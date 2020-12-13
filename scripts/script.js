@@ -1,7 +1,8 @@
 
-//профиль попапа
+//const профиль попапа
 const buttonOpenEdit = document.querySelector(".profile__edit-btn");
 const buttonCloseEdit = document.querySelector("#popup-profile-close");
+
 const popup = document.querySelector(".popup");
 
 const profileForm = popup.querySelector("#edit-profile");
@@ -15,13 +16,19 @@ const profileAbout = document.querySelector(".profile__caption");
 const profileContainer = document.querySelector(".profile__info-container");
 const editProfilePopup = document.querySelector(".popup-profile");
 
-//карточка попап
+//const карточка попап
 const addButton = document.querySelector(".profile__add-btn");
 const buttonCloseCard = document.querySelector("#popup-cards-close");
 const addCardPopup = document.querySelector(".popup-card");
 const inputPlace = document.querySelector("#card-name");
 const inputLink = document.querySelector("#link");
 const buttonSubmit =popup.querySelector("#card-submit");
+
+//const фото попап
+const fullImagePopup = document.querySelector(".popup-image");
+const fullImageCloseBtn = document.querySelector("#popup-image-close");
+const popupImage = fullImagePopup.querySelector(".popup__full-image");
+const fullImageTitle = fullImagePopup.querySelector(".popup__text");
 
 
 //функция открытия попап профиля
@@ -104,13 +111,16 @@ function composeCard({name, link})  {
   cardTitle.textContent = name;
   cardImage.src = link;
   cardImage.alt = name;
-  //попап открытия фото
   //лайк
   cardLike.addEventListener("click", () => {
     cardLike.classList.toggle("element__like-active");
   });
   //удалить 
   deleteBtn.addEventListener("click", deleteCard);
+  //попап full фото
+  cardImage.addEventListener("click", ()=> {
+    composeFullImagePopup(name, link);
+  });
 
   return newItem;
 };
@@ -130,7 +140,13 @@ cardForm.addEventListener('submit', addCard);
 //Удаление карточки
 function deleteCard(event)  {
   event.target.closest(".element").remove();
-
 }
 
+//открыть попап full фото
+const composeFullImagePopup = (name, link)  => {
+  popupOpen(fullImagePopup);
+  fullImageTitle.textContent = name;
+  popupImage.src = link;
+  popupImage.alt = name;
+};
 
