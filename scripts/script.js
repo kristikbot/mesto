@@ -151,6 +151,4 @@ const composeFullImagePopup = (name, link)  => {
   popupImage.alt = name;
 };
 
-//закрыть попап full фото
-
 
