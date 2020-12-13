@@ -3,7 +3,10 @@
 const buttonOpenEdit = document.querySelector(".profile__edit-btn");
 const buttonCloseEdit = document.querySelector("#popup-profile-close");
 const popup = document.querySelector(".popup");
-const popupForm = popup.querySelector(".edit-profile");
+
+const profileForm = popup.querySelector("#edit-profile");
+const cardForm = document.querySelector("#add-card");
+
 const inputName = document.querySelector('.popup__input-name');
 const inputAbout = document.querySelector('.popup__input-about');
 const buttonSave = popup.querySelector(".popup__save");
@@ -43,7 +46,7 @@ function openFormHandler() {
   inputAbout.value = profileAbout.textContent;
 }
 // Находим форму в DOM
-let formElement = popup.querySelector(".popup__form"); 
+/*let formElement = popup.querySelector("#edit-profile"); */
 // Обработчик «отправки» формы, 
 function formSubmitHandler (evt) {
     evt.preventDefault(); 
@@ -51,7 +54,7 @@ function formSubmitHandler (evt) {
     profileAbout.textContent = inputAbout.value;
     closePopup();
 }
-formElement.addEventListener('submit', formSubmitHandler); 
+profileForm.addEventListener('submit', formSubmitHandler); 
 
 
 const initialCards = [
@@ -101,73 +104,24 @@ function composeCard({name, link})  {
   cardImage.src = link;
   cardImage.alt = name;
   //попап открытия фото
+  //лайк
+  //удаление
   return newItem;
 };
-
 rederCardList();
 
+//добавление карточки
+function addCard(evt) {
+  evt.preventDefault();
+  const newCard = composeCard({ link: inputLink.value, name: inputPlace.value});
+  listElements.prepend(newCard);
+  inputPlace.value = "";
+  inputLink.value = "";
+  closePopup(addCardPopup);
+};
+cardForm.addEventListener('submit', addCard);
 
 
 
 
 
-
-
-/*
-function renderList() {
-  let newHTML = ' ';
-
-  newHTML = initialCards.map(item => {
-      return `<li class="element">
-      <img src="${item.link}" alt="Мандалай" class="element__image">
-      <div class="element__card">
-          <h2 class="element__title">${item.name}</h2>
-          <button type="button" class="element__like" aria-label="Нравится"></button>
-      </div>
-      </li>`
-  }).join('')
-  listElements.insertAdjacentHTML('afterbegin', newHTML);
-}
-renderList();
-
-
-
-const initialCards = [
-  {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-]; 
-
-const listElements = document.querySelector('.elements');
-function renderList(){
-  const templateCards = document.querySelector('#templateCards').content;
-  const elementCard = templateCards.cloneNode(true);
-
-  elementCard.querySelector('.element__image').link = initialCards.link;
-  elementCard.querySelector('.element__title').textContent = initialCards.name;
-  listElements.append(elementCard);
-
-}
-renderList();
-*/
