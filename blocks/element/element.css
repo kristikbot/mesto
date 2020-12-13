@@ -3,6 +3,7 @@
 @import url(./__like/element__like.css);
 @import url(./__card/element__card.css);
 @import url(./__like/element__like-active.css);
+@import url(./__delete/element__delete.css);
 
 .element{
  font-family: 'Inter', Arial, sans-serif;
@@ -11,6 +12,7 @@
  text-overflow: ellipsis;
  white-space: nowrap;
  overflow: hidden;
+ position: relative;
  
 
  

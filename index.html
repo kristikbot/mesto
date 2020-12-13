@@ -104,12 +104,16 @@
 
     <template id="templateCards">
         <li class="element">
-            <img src="" alt="" class="element__image">
+            <div class="element__container">
+                <button type="button" aria-label="Удалить" class="element__delete"></button>
+                <img src="" alt="" class="element__image">
+            </div>
             <div class="element__card">
                 <h2 class="element__title"></h2>
                 <button type="button" class="element__like" aria-label="Нравится"></button>
             </div>
-            </li>
+            
+        </li>
     </template>  
 
     <script src="./scripts/script.js"></script>
