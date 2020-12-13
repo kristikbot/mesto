@@ -86,9 +86,10 @@ const initialCards = [
 
 const listElements = document.querySelector('.elements');
 const templateCard = document.querySelector('#templateCards');
+const deleteBtn = document.querySelector(".element__delete");
 
 //отрисовка дефолтных карточек 
-function rederCardList() {
+function renderCardList() {
   const cardItems = initialCards.map(composeCard);
   listElements.append(...cardItems);
 };
@@ -99,7 +100,7 @@ function composeCard({name, link})  {
   const cardTitle = newItem.querySelector(".element__title");
   const cardImage = newItem.querySelector(".element__image");
   const cardLike = newItem.querySelector(".element__like");
-  //card cardDeleteBtn = 
+  const deleteBtn = newItem.querySelector(".element__delete");
   cardTitle.textContent = name;
   cardImage.src = link;
   cardImage.alt = name;
@@ -108,10 +109,12 @@ function composeCard({name, link})  {
   cardLike.addEventListener("click", () => {
     cardLike.classList.toggle("element__like-active");
   });
-  //удаление
+  //удалить 
+  deleteBtn.addEventListener("click", deleteCard);
+
   return newItem;
 };
-rederCardList();
+renderCardList();
 
 //добавление карточки
 function addCard(evt) {
@@ -124,7 +127,10 @@ function addCard(evt) {
 };
 cardForm.addEventListener('submit', addCard);
 
+//Удаление карточки
+function deleteCard(event)  {
+  event.target.closest(".element").remove();
 
-
+}
 
 
