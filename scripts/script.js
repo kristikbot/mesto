@@ -46,6 +46,7 @@ function closePopup(popup) {
 }
 buttonCloseEdit.addEventListener("click", ()=> closePopup(editProfilePopup));
 buttonCloseCard.addEventListener("click", ()=> closePopup(addCardPopup));
+fullImageCloseBtn.addEventListener("click", ()=> closePopup(fullImagePopup));
 
 //функция которая связывает значение профиля с формой
 function openFormHandler() {
@@ -149,4 +150,7 @@ const composeFullImagePopup = (name, link)  => {
   popupImage.src = link;
   popupImage.alt = name;
 };
+
+//закрыть попап full фото
+
 
