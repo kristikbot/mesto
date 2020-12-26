@@ -60,7 +60,7 @@ function formSubmitHandler (evt) {
     evt.preventDefault(); 
     profileName.textContent = inputName.value;
     profileAbout.textContent = inputAbout.value;
-    closePopup();
+    closePopup(editProfilePopup);
 }
 profileForm.addEventListener('submit', formSubmitHandler); 
 
