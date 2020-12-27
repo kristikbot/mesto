@@ -3,9 +3,9 @@
 const buttonOpenEdit = document.querySelector(".profile__edit-btn");
 const buttonCloseEdit = document.querySelector("#popup-profile-close");
 
-const popup = document.querySelector(".popup");
+const popupWindow = document.querySelector(".popup");
 
-const profileForm = popup.querySelector("#edit-profile");
+const profileForm = popupWindow.querySelector("#edit-profile");
 const cardForm = document.querySelector("#add-card");
 
 const inputName = document.querySelector('.popup__input-name');
@@ -21,7 +21,7 @@ const buttonCloseCard = document.querySelector("#popup-cards-close");
 const addCardPopup = document.querySelector(".popup-card");
 const inputPlace = document.querySelector("#card-name");
 const inputLink = document.querySelector("#link");
-const buttonSubmit =popup.querySelector("#card-submit");
+const buttonSubmit =popupWindow.querySelector("#card-submit");
 
 //const фото попап
 const fullImagePopup = document.querySelector(".popup-image");
