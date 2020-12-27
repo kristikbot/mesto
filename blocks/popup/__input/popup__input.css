@@ -38,3 +38,7 @@
 
   }
 }
+
+.popup__input:invalid:not(:focus):not(:placeholder-shown) {
+  border-bottom: 1px solid #FF0000;
+}

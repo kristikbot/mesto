@@ -93,11 +93,13 @@
       <!-- Попап карточки-->
 
      <div class="popup popup-card">               
-        <form class="popup__form" autocomplete="off" name="Профиль" id="add-card">
+        <form class="popup__form" autocomplete="off" name="Профиль" id="add-card" novalidate>
             <button type="button" aria-label="Закрыть" class="popup__close" id="popup-cards-close"></button>  
             <h2 class="popup__title">Новое место</h2>
             <input id="card-name" name="name" type="text" placeholder="Название" class="popup__input popup__input-card" required>
+            <span id="card-name-error" class="error"></span>
             <input id="link" name="about" type="link" placeholder="Ссылка на картинку" class="popup__input popup__input-link" required>
+            <span id="link-error" class="error"></span>
             <button class="popup__save"  type="submit" aria-label="Сохранить" id="card-submit">Добавить</button>
         </form>
     </div>

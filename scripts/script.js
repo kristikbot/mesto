@@ -20,9 +20,9 @@ const editProfilePopup = document.querySelector(".popup-profile");
 const addButton = document.querySelector(".profile__add-btn");
 const buttonCloseCard = document.querySelector("#popup-cards-close");
 const addCardPopup = document.querySelector(".popup-card");
-const inputPlace = document.querySelector("#card-name");
+/*const inputPlace = document.querySelector("#card-name");
 const inputLink = document.querySelector("#link");
-const buttonSubmit =popup.querySelector("#card-submit");
+const buttonSubmit =popup.querySelector("#card-submit");*/
 
 //const фото попап
 const fullImagePopup = document.querySelector(".popup-image");
@@ -152,3 +152,16 @@ const composeFullImagePopup = (name, link)  => {
 };
 
 
+//валидация 
+/*const cardForm = document.querySelector("#add-card"); *///удалить//
+const inputPlace = cardForm.querySelector("#card-name"); //удалить//
+const inputLink = cardForm.querySelector("#link"); //удалить//
+const buttonSubmit =cardForm.querySelector("#card-submit"); //удалить//
+
+inputName.addEventListener('input', (evt) => {
+  //console.log(evt.target);
+  //console.log(evt.target.validity);
+});
+
+
+const inputList = cardForm.querySelectorAll('.popup__input');
