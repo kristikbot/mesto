@@ -156,7 +156,17 @@ const composeFullImagePopup = (name, link)  => {
 /*const cardForm = document.querySelector("#add-card"); *///удалить//
 const inputPlace = cardForm.querySelector("#card-name"); //удалить//
 const inputLink = cardForm.querySelector("#link"); //удалить//
-const buttonSubmit =cardForm.querySelector("#card-submit"); //удалить//
+const submitButton =cardForm.querySelector("#card-submit"); //удалить//
+const inputList = cardForm.querySelectorAll('.popup__input');
+
+card
+
+function showError(form, input) = ;
+
+function hideError() = ;
+
+function checkInputValidity() = ;
+
 
 inputName.addEventListener('input', (evt) => {
   //console.log(evt.target);
@@ -164,4 +174,3 @@ inputName.addEventListener('input', (evt) => {
 });
 
 
-const inputList = cardForm.querySelectorAll('.popup__input');
