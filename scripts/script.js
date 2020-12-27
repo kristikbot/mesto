@@ -10,10 +10,9 @@ const cardForm = document.querySelector("#add-card");
 
 const inputName = document.querySelector('.popup__input-name');
 const inputAbout = document.querySelector('.popup__input-about');
-const buttonSave = popup.querySelector(".popup__save");
+
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__caption");
-const profileContainer = document.querySelector(".profile__info-container");
 const editProfilePopup = document.querySelector(".popup-profile");
 
 //const карточка попап
@@ -32,12 +31,15 @@ const fullImageTitle = fullImagePopup.querySelector(".popup__text");
 
 
 //функция открытия попап профиля
-function popupOpen(popup) {
-  openFormHandler();
+function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
-buttonOpenEdit.addEventListener('click', ()=>popupOpen(editProfilePopup));
-addButton.addEventListener('click', ()=>popupOpen(addCardPopup));
+
+buttonOpenEdit.addEventListener('click', ()=> {
+  openPopup(editProfilePopup);
+  openFormHandler();
+});
+addButton.addEventListener('click', ()=>openPopup(addCardPopup));
 
 
 //функция закрытия попап профиля
@@ -145,7 +147,7 @@ function deleteCard(event)  {
 
 //открыть попап full фото
 const composeFullImagePopup = (name, link)  => {
-  popupOpen(fullImagePopup);
+  openPopup(fullImagePopup);
   fullImageTitle.textContent = name;
   popupImage.src = link;
   popupImage.alt = name;
