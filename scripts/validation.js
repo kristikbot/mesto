@@ -59,8 +59,8 @@ const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save',
-    inputInvalidClass: '.popup__input_state_invalid',
-    buttonInvalidClass: '.popup__save_invalid', 
+    inputInvalidClass: 'popup__input_state_invalid',
+    buttonInvalidClass: 'popup__save_invalid', 
 };
 
 enableValidation(validationConfig);
