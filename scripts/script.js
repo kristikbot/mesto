@@ -14,6 +14,9 @@ const inputAbout = document.querySelector('.popup__input-about');
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__caption");
 const editProfilePopup = document.querySelector(".popup-profile");
+const buttonSubmitEditProfile = profileForm.querySelector("#popup-profile-save");
+
+
 
 //const карточка попап
 const addButton = document.querySelector(".profile__add-btn");
@@ -38,8 +41,21 @@ function openPopup(popup) {
 buttonOpenEdit.addEventListener('click', ()=> {
   openPopup(editProfilePopup);
   openFormHandler();
+  //enableValidation(profileForm);
+  setButtonState(buttonSubmit, cardForm.checkValidity(), validationConfig);
+  //удаление сообщений об ошибке
+  /*editProfileInputList.forEach((input) => {
+    hideError(editProfileForm, input, validationConfig);
+  });*/
 });
-addButton.addEventListener('click', ()=>openPopup(addCardPopup));
+
+//функция открытия попап карточки
+addButton.addEventListener('click', ()=>{
+  openPopup(addCardPopup);
+  setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);
+
+
+});
 
 
 //функция закрытия попап профиля
