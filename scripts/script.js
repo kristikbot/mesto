@@ -3,26 +3,25 @@
 const buttonOpenEdit = document.querySelector(".profile__edit-btn");
 const buttonCloseEdit = document.querySelector("#popup-profile-close");
 
-const popup = document.querySelector(".popup");
+const popupWindow = document.querySelector(".popup");
 
-const profileForm = popup.querySelector("#edit-profile");
+const profileForm = popupWindow.querySelector("#edit-profile");
 const cardForm = document.querySelector("#add-card");
 
 const inputName = document.querySelector('.popup__input-name');
 const inputAbout = document.querySelector('.popup__input-about');
-const buttonSave = popup.querySelector(".popup__save");
+
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__caption");
-const profileContainer = document.querySelector(".profile__info-container");
 const editProfilePopup = document.querySelector(".popup-profile");
 
 //const карточка попап
 const addButton = document.querySelector(".profile__add-btn");
 const buttonCloseCard = document.querySelector("#popup-cards-close");
 const addCardPopup = document.querySelector(".popup-card");
-/*const inputPlace = document.querySelector("#card-name");
+const inputPlace = document.querySelector("#card-name");
 const inputLink = document.querySelector("#link");
-const buttonSubmit =popup.querySelector("#card-submit");*/
+const buttonSubmit =popupWindow.querySelector("#card-submit");
 
 //const фото попап
 const fullImagePopup = document.querySelector(".popup-image");
@@ -32,12 +31,15 @@ const fullImageTitle = fullImagePopup.querySelector(".popup__text");
 
 
 //функция открытия попап профиля
-function popupOpen(popup) {
-  openFormHandler();
+function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
-buttonOpenEdit.addEventListener('click', ()=>popupOpen(editProfilePopup));
-addButton.addEventListener('click', ()=>popupOpen(addCardPopup));
+
+buttonOpenEdit.addEventListener('click', ()=> {
+  openPopup(editProfilePopup);
+  openFormHandler();
+});
+addButton.addEventListener('click', ()=>openPopup(addCardPopup));
 
 
 //функция закрытия попап профиля
@@ -60,7 +62,7 @@ function formSubmitHandler (evt) {
     evt.preventDefault(); 
     profileName.textContent = inputName.value;
     profileAbout.textContent = inputAbout.value;
-    closePopup();
+    closePopup(editProfilePopup);
 }
 profileForm.addEventListener('submit', formSubmitHandler); 
 
@@ -145,32 +147,8 @@ function deleteCard(event)  {
 
 //открыть попап full фото
 const composeFullImagePopup = (name, link)  => {
-  popupOpen(fullImagePopup);
+  openPopup(fullImagePopup);
   fullImageTitle.textContent = name;
   popupImage.src = link;
   popupImage.alt = name;
 };
-
-
-//валидация 
-/*const cardForm = document.querySelector("#add-card"); *///удалить//
-const inputPlace = cardForm.querySelector("#card-name"); //удалить//
-const inputLink = cardForm.querySelector("#link"); //удалить//
-const submitButton =cardForm.querySelector("#card-submit"); //удалить//
-const inputList = cardForm.querySelectorAll('.popup__input');
-
-card
-
-function showError(form, input) = ;
-
-function hideError() = ;
-
-function checkInputValidity() = ;
-
-
-inputName.addEventListener('input', (evt) => {
-  //console.log(evt.target);
-  //console.log(evt.target.validity);
-});
-
-

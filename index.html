@@ -28,49 +28,7 @@
           </section>
         <!-- Места -->
         <section>
-            <ul class="elements">
-                <!--  <li class="element">
-                    <img src="./images/place1.png" alt="Мандалай" class="element__image">
-                    <div class="element__card">
-                        <h2 class="element__title">Мандалай</h2>
-                        <button type="button" class="element__like" aria-label="Нравится"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/place2.png" alt="Владивосток" class="element__image">
-                    <div class="element__card">
-                        <h2 class="element__title">Владивосток</h2>
-                        <button type="button" class="element__like" aria-label="Нравится"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/place3.png" alt="Гонконг" class="element__image">
-                    <div class="element__card">
-                        <h2 class="element__title">Гонконг</h2>
-                        <button type="button" class="element__like" aria-label="Нравится"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/place4.png" alt="Фейхуан" class="element__image">
-                    <div class="element__card">
-                        <h2 class="element__title">Фейхуан</h2>
-                        <button type="button" class="element__like" aria-label="Нравится"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/place5.png" alt="Гуйлин" class="element__image">
-                    <div class="element__card">
-                        <h2 class="element__title">Гуйлин</h2>
-                        <button type="button" class="element__like" aria-label="Нравится"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/place6.png" alt="Токио" class="element__image">
-                    <div class="element__card">
-                        <h2 class="element__title">Токио</h2>
-                        <button type="button" class="element__like" aria-label="Нравится"></button>
-                    </div>
-                </li>-->
+          <ul class="elements">
           </ul>
         </section>
          
@@ -81,11 +39,13 @@
         <!-- Попап профиль-->
 
      <div class="popup popup-profile">               
-            <form class="popup__form" autocomplete="off" name="Профиль" id="edit-profile">
+            <form class="popup__form" autocomplete="off" name="Профиль" id="edit-profile" novalidate>
                 <button type="button" aria-label="Закрыть" class="popup__close" id="popup-profile-close"></button>  
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input id="name" name="name" type="text" placeholder="Имя" class="popup__input popup__input-name" required>
-                <input id="about" name="about" type="text" placeholder="О себе" class="popup__input popup__input-about" required>
+                <input id="name" name="name" type="text" placeholder="Имя" class="popup__input popup__input-name" required minlength="2" maxlength="40">
+                <span id="name-error" class="popup__input-error"></span>
+                <input id="about" name="about" type="text" placeholder="О себе" class="popup__input popup__input-about" required minlength="2" maxlength="200">
+                <span id="about-error" class="popup__input-error"></span>
                 <button class="popup__save"  type="submit" aria-label="Сохранить" id="popup-profile-save">Сохранить</button>
             </form>
      </div>
@@ -96,21 +56,21 @@
         <form class="popup__form" autocomplete="off" name="Профиль" id="add-card" novalidate>
             <button type="button" aria-label="Закрыть" class="popup__close" id="popup-cards-close"></button>  
             <h2 class="popup__title">Новое место</h2>
-            <input id="card-name" name="name" type="text" placeholder="Название" class="popup__input popup__input-card" required>
-            <span id="card-name-error" class="error"></span>
-            <input id="link" name="about" type="link" placeholder="Ссылка на картинку" class="popup__input popup__input-link" required>
-            <span id="link-error" class="error"></span>
+            <input id="card-name" name="name" type="text" placeholder="Название" class="popup__input popup__input-card" required autocomplete="off" minlength="2" maxlength="30">
+            <span id="card-name-error" class="popup__input-error"></span>
+            <input id="link" name="about" type="url" placeholder="Ссылка на фото" class="popup__input popup__input-link" required autocomplete="off">
+            <span id="link-error" class="popup__input-error"></span>
             <button class="popup__save"  type="submit" aria-label="Сохранить" id="card-submit">Добавить</button>
         </form>
-    </div>
+      </div>
 
 
-    <!-- Попап шаблон-->
-    <template id="templateCards">
+     <!-- Попап шаблон-->
+     <template id="templateCards">
         <li class="element">
             <div class="element__container">
                 <button type="button" aria-label="Удалить" class="element__delete"></button>
-                <img src="#" alt="" class="element__image">
+                <img src="#" alt="#" class="element__image">
             </div>
             <div class="element__card">
                 <h2 class="element__title"></h2>
@@ -118,18 +78,18 @@
             </div>
             
         </li>
-    </template>  
+     </template>  
 
-    <!-- Попап фото-->
-    <div class="popup popup-image">
+     <!-- Попап фото-->
+     <div class="popup popup-image">
         <div class="popup__container-image">
           <button class="popup__close popup__close_image" id="popup-image-close" type="button"  aria-label="Закрыть"></button>
-          <img src="#" alt="" class="popup__full-image">
+          <img src="#" alt="#" class="popup__full-image">
           <p class="popup__text"></p>
         </div>
-    </div>
-
+     </div>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/validation.js"></script>
 </div>
 </body>
 </html>
