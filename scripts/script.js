@@ -36,27 +36,14 @@ const fullImageTitle = fullImagePopup.querySelector(".popup__text");
 //функция открытия попап 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  // popupWindow.addEventListener("click", closePopupByClick());//  тут не работает
+  popup.addEventListener("click", closePopupByClick);//  тут не работает
   document.addEventListener('keyup', closePopupEsc);// и тут 
 }
-
-buttonOpenEdit.addEventListener('click', ()=> {
-  openPopup(editProfilePopup);
-  openFormHandler();
-  //enableValidation(profileForm);
-  setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);
-});
-
-//функция открытия попап карточки
-addButton.addEventListener('click', ()=>{
-  openPopup(addCardPopup);
-  setButtonState(buttonSubmit, cardForm.checkValidity(), validationConfig);
-});
 
 //функция закрытия попап 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  // popupWindow.removeEventListener("click", closePopupByClick());// и тут
+  popup.removeEventListener("click", closePopupByClick);// и тут
   document.removeEventListener('keyup', closePopupEsc);
 }
 buttonCloseEdit.addEventListener("click", ()=> closePopup(editProfilePopup));
@@ -65,18 +52,31 @@ fullImageCloseBtn.addEventListener("click", ()=> closePopup(fullImagePopup));
 
 
 //закрытие попапа overlay click
-/*function closePopupByClick(evt) {
+function closePopupByClick(evt) {
   const overlay = evt.target;
   if (overlay.closest(".popup__form")) e.stopPropagation();
   else if (overlay.closest(".popup")) closePopup(overlay);
   console.log(evt.target);
-}*/
+}
 
 //закрытие по  Esc
 const closePopupEsc = (evt) => {
   const activePopup = document.querySelector(".popup_opened");
   if (evt.key === 'Escape') {closePopup(activePopup)};
   };
+
+  buttonOpenEdit.addEventListener('click', ()=> {
+    openPopup(editProfilePopup);
+    openFormHandler();
+    //enableValidation(profileForm);
+    setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);
+  });
+  
+  //функция открытия попап карточки
+  addButton.addEventListener('click', ()=>{
+    openPopup(addCardPopup);
+    setButtonState(buttonSubmit, cardForm.checkValidity(), validationConfig);
+  });
 
 //функция которая связывает значение профиля с формой
 function openFormHandler() {
