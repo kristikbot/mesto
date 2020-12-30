@@ -60,7 +60,7 @@ const validationConfig = {
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save',
     inputInvalidClass: 'popup__input_state_invalid',
-    buttonInvalidClass: 'popup__save_invalid', 
+    buttonInvalidClass: 'popup__save_state_invalid', 
 };
 
 enableValidation(validationConfig);

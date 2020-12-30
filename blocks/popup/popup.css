@@ -7,7 +7,7 @@
 @import url(./__full-image/popup__full-image.css);
 @import url(./__text/popup__text.css);
 @import url(./__input-error/popup__input-error.css);
-@import url(./__save-invalid/popup__save_invalid.css);
+@import url(./__save/_state/popup__save_state_invalid.css);
 
 .popup {
     position: fixed;
