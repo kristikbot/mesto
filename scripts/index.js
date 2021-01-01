@@ -35,35 +35,24 @@ const fullImageTitle = fullImagePopup.querySelector(".popup__text");
 //функция открытия попап 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  popup.addEventListener("click", closePopupByClick);//  тут не работает
-  document.addEventListener('keyup', closePopupEsc);// и тут 
+  document.addEventListener('keyup', closePopupEsc);
 }
 
 //функция закрытия попап 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  popup.removeEventListener("click", closePopupByClick);// и тут
   document.removeEventListener('keyup', closePopupEsc);
 }
-/*buttonCloseEdit.addEventListener("click", ()=> closePopup(editProfilePopup));
-buttonCloseCard.addEventListener("click", ()=> closePopup(addCardPopup));
-fullImageCloseBtn.addEventListener("click", ()=> closePopup(fullImagePopup));*/
-
 
 //закрытие попапа overlay click
-function closePopupByClick(evt) {
-  /*const overlay = evt.target;
-  if (overlay.closest(".popup__form")) e.stopPropagation();
-  else if (overlay.closest(".popup")) closePopup(overlay);
-  console.log(evt.target);*/
-  popups.forEach((popup) => {
+popups.forEach((popup) => {
     popup.addEventListener("click", (evt) => {
       if (evt.target.classList.contains('popup')) {closePopup(evt.target)}
       if (evt.target.classList.contains('popup__close')) {closePopup(popup)}
     }
     )}
-  )
-};
+)
+
 
 //закрытие по Esc
 const closePopupEsc = (evt) => {
@@ -90,7 +79,6 @@ function openFormHandler() {
   inputAbout.value = profileAbout.textContent;
 }
 // Находим форму в DOM
-/*let formElement = popup.querySelector("#edit-profile"); */
 // Обработчик «отправки» формы, 
 function formSubmitHandler (evt) {
     evt.preventDefault(); 
