@@ -15,6 +15,7 @@ const buttonCloseEdit = document.querySelector("#popup-profile-close");
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__caption");
 const buttonSubmitEditProfile = profileForm.querySelector("#popup-profile-save");
+const pofileInputList = profileForm.querySelectorAll(".popup__input");
 
 //const карточка попап
 const cardForm = document.querySelector("#add-card");
@@ -24,6 +25,7 @@ const addCardPopup = document.querySelector(".popup-card");
 const inputPlace = document.querySelector("#card-name");
 const inputLink = document.querySelector("#link");
 const buttonSubmit =cardForm.querySelector("#card-submit");
+const cardInputList = cardForm.querySelectorAll(".popup__input");
 
 //const фото попап
 const fullImagePopup = document.querySelector(".popup-image");
@@ -63,14 +65,21 @@ const closePopupEsc = (evt) => {
   buttonOpenEdit.addEventListener('click', ()=> {
     openPopup(editProfilePopup);
     openFormHandler();
-    //enableValidation(profileForm);
-    setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);
+    setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);//валидация кнопки
+    pofileInputList.forEach((input) => {
+     hideError(profileForm, input, validationConfig);//убирает ошибку
+    });
   });
   
   //функция открытия попап карточки
   addButton.addEventListener('click', ()=>{
     openPopup(addCardPopup);
+    cardForm.reset();//сбрасывает недобавленную карточку
     setButtonState(buttonSubmit, cardForm.checkValidity(), validationConfig);
+    cardInputList.forEach((input) => {
+      hideError(cardForm, input, validationConfig);//убирает ошибку
+     });
+  
   });
 
 //функция которая связывает значение профиля с формой
@@ -87,6 +96,9 @@ function formSubmitHandler (evt) {
     closePopup(editProfilePopup);
 }
 profileForm.addEventListener('submit', formSubmitHandler); 
+
+
+
 
 
 const initialCards = [
