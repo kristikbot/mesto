@@ -137,6 +137,7 @@ function renderCardList() {
   cardsContainer.append(...cardItems);
 };
 
+//Class Card 
 //формируем карточку 
 function composeCard({name, link})  {
   const newItem =  templateCard.content.cloneNode(true);
