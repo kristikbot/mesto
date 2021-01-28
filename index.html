@@ -26,18 +26,18 @@
             </div>
             <button type="button" class="profile__add-btn" aria-label="Добавить"></button>
           </section>
-        <!-- Места -->
-        <section>
+        
+          <!-- Места -->
+         <section>
           <ul class="elements">
           </ul>
-        </section>
-         
-         </main>
+         </section>
+        </main>
         <footer class="footer">
             <p class="footer__text">&copy; 2020 Mesto Russia</p>
         </footer>
+        
         <!-- Попап профиль-->
-
      <div class="popup popup-profile"> 
             <form class="popup__form" autocomplete="off" name="Профиль" id="edit-profile" novalidate>
                 <button type="button" aria-label="Закрыть" class="popup__close" id="popup-profile-close"></button>  
@@ -51,7 +51,6 @@
      </div>
 
       <!-- Попап карточки-->
-
      <div class="popup popup-card">               
         <form class="popup__form" autocomplete="off" name="Профиль" id="add-card" novalidate>
             <button type="button" aria-label="Закрыть" class="popup__close" id="popup-cards-close"></button>  
@@ -65,7 +64,7 @@
       </div>
 
 
-     <!-- Попап шаблон-->
+     <!--Шаблон карточки-->
      <template id="templateCards">
         <li class="element">
             <div class="element__container">
@@ -88,8 +87,10 @@
           <p class="popup__text"></p>
         </div>
      </div>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validation.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/validation.js"></script>
+    <script type="module" src="./scripts/cards.js"></script>
+
 </div>
 </body>
 </html>
