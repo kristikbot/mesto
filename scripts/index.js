@@ -100,9 +100,6 @@ function formSubmitHandler (evt) {
 profileForm.addEventListener('submit', formSubmitHandler); 
 
 
-
-
-
 const initialCards = [
   {
       name: 'Архыз',
