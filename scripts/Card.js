@@ -36,7 +36,7 @@ export class Card {
         this._handleDeleteCard();
       })
       this._element.querySelector(".popup-image").addEventListener('click', () => {
-        this._clickFullPhoto(this._name, this._link);
+        this._clickFullPhoto(this.data);
       })
     }
   

@@ -1,5 +1,7 @@
 
 import {Card} from "./Card.js";
+import {validationConfig, FormValidator} from "./FormValidator.js";
+// import {FormValidator}  from "./FormValidator.js";
 
 //универсальные const
 const popup = document.querySelector(".popup");
@@ -62,19 +64,19 @@ popups.forEach((popup) => {
 const closePopupEsc = (evt) => {
   const activePopup = document.querySelector(".popup_opened");
   if (evt.key === 'Escape') {closePopup(activePopup)};
-  };
+};
 
-  buttonOpenEdit.addEventListener('click', ()=> {
+buttonOpenEdit.addEventListener('click', ()=> {
     openPopup(editProfilePopup);
     openFormHandler();
     setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);//валидация кнопки
     pofileInputList.forEach((input) => {
      hideError(profileForm, input, validationConfig);//убирает ошибку
     });
-  });
+});
   
-  //функция открытия попап карточки
-  addButton.addEventListener('click', ()=>{
+//функция открытия попап карточки
+addButton.addEventListener('click', ()=>{
     openPopup(addCardPopup);
     cardForm.reset();//сбрасывает недобавленную карточку
     setButtonState(buttonSubmit, cardForm.checkValidity(), validationConfig);
@@ -82,7 +84,7 @@ const closePopupEsc = (evt) => {
       hideError(cardForm, input, validationConfig);//убирает ошибку
      });
   
-  });
+});
 
 //функция которая связывает значение профиля с формой
 function openFormHandler() {
@@ -131,11 +133,11 @@ const cardsContainer = document.querySelector('.elements');
 const templateCard = document.querySelector('#templateCards');
 
 //открыть попап full фото
-const composeFullImagePopup = (name, link)  => {
+const composeFullImagePopup = (data)  => {
   openPopup(fullImagePopup);
-  fullImageTitle.textContent = name;
-  popupImage.src = link;
-  popupImage.alt = name;
+  fullImageTitle.textContent = this._name;
+  popupImage.src = this._link;
+  popupImage.alt = this._name;
 };
 
 
@@ -193,3 +195,12 @@ function deleteCard(event)  {
   event.target.closest(".element").remove();
 }*/
 
+// enableValidation(validationConfig);
+// //валидация форм
+// const setValidation = (formElement) => {
+//   const validation = new FormValidator(validationConfig, formElement);
+//   validation.enableValidation();
+// };
+
+// setValidation(editProfilePopup);
+// setValidation(addNewCardPopup);
