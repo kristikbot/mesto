@@ -69,20 +69,26 @@ const closePopupEsc = (evt) => {
 buttonOpenEdit.addEventListener('click', ()=> {
     openPopup(editProfilePopup);
     openFormHandler();
-    setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);//валидация кнопки
+    // setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);//валидация кнопки
     pofileInputList.forEach((input) => {
      hideError(profileForm, input, validationConfig);//убирает ошибку
     });
+    const validator = new FormValidator(validationConfig, editProfilePopup);
+    validator.enableValidation();
 });
   
 //функция открытия попап карточки
 addButton.addEventListener('click', ()=>{
     openPopup(addCardPopup);
     cardForm.reset();//сбрасывает недобавленную карточку
-    setButtonState(buttonSubmit, cardForm.checkValidity(), validationConfig);
-    cardInputList.forEach((input) => {
-      hideError(cardForm, input, validationConfig);//убирает ошибку
-     });
+    // setButtonState(buttonSubmit, cardForm.checkValidity(), validationConfig);
+    const validator = new FormValidator(validationConfig, addCardPopup);
+    validator.enableValidation();
+    // hideError(addCardPopup);
+    // cardInputList.forEach((input) => {
+    //   hideError(cardForm, input, validationConfig);//убирает ошибку
+      
+    //  });
   
 });
 
@@ -104,28 +110,28 @@ profileForm.addEventListener('submit', formSubmitHandler);
 
 const initialCards = [
   {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+      name: 'Maja Ruznic',
+      link: 'https://i.pinimg.com/564x/69/d7/ff/69d7ff060aa1bfc5089d8b76b9996c48.jpg'
   },
   {
-      name: 'Челяба',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+      name: 'Richard Butler',
+      link: 'https://i.pinimg.com/564x/bc/84/be/bc84be5d9f411234728942098cfb3de3.jpg'
   },
   {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+      name: 'Naudline Pierre',
+      link: 'https://i.pinimg.com/564x/23/c8/02/23c8022b2c1074fcefbd3e3aa8779869.jpg'
   },
   {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+      name: 'Vivian Springford',
+      link: 'https://i.pinimg.com/564x/29/e9/c7/29e9c767f9386735f1dde59cfd3d7ac2.jpg'
   },
   {
-      name: 'Холмогорск',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+      name: 'Larry Poons',
+      link: 'https://i.pinimg.com/564x/af/d3/3c/afd33c680d406918eaab7b7adcfc05d4.jpg'
   },
   {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+      name: 'James Marshall',
+      link: 'https://i.pinimg.com/564x/66/04/39/6604391f91e0e91e93e4243a63862437.jpg'
   }
 ]; 
 
@@ -133,14 +139,12 @@ const cardsContainer = document.querySelector('.elements');
 const templateCard = document.querySelector('#templateCards');
 
 //открыть попап full фото
-const composeFullImagePopup = (data)  => {
+const composeFullImagePopup = (name, link)  => {
   openPopup(fullImagePopup);
-  fullImageTitle.textContent = this._name;
-  popupImage.src = this._link;
-  popupImage.alt = this._name;
+  fullImageTitle.textContent = name;
+  popupImage.src = link;
+  popupImage.alt = name;
 };
-
-
 
 
 // формируем карточку 
@@ -204,3 +208,4 @@ function deleteCard(event)  {
 
 // setValidation(editProfilePopup);
 // setValidation(addNewCardPopup);
+

@@ -20,7 +20,7 @@ export class Card {
     //создает карточку
     generateCard(){
       this._element = this._getTemplate();
-  
+      this._setEventListeners();
       this._element.querySelector('.element__title').textContent = this._name;
       this._element.querySelector('.element__image').src = this._link;
     
@@ -35,8 +35,8 @@ export class Card {
       this._element.querySelector(".element__delete").addEventListener('click', () => {
         this._handleDeleteCard();
       })
-      this._element.querySelector(".popup-image").addEventListener('click', () => {
-        this._clickFullPhoto(this.data);
+      this._element.querySelector(".element__image").addEventListener('click', () => {
+        this._clickFullPhoto(this._name, this._link);
       })
     }
   

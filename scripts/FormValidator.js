@@ -7,13 +7,13 @@ export const validationConfig = {
 };
 
 export class FormValidator{
-    constructor(validationConfig, formElement) {
+    constructor(validationConfig, form) {
         this._formSelector  = validationConfig.formSelector,
         this._inputSelector = validationConfig.inputSelector,
         this._submitButtonSelector = validationConfig.submitButtonSelector,
         this._inputInvalidClass = validationConfig.inputInvalidClass,
-        this._buttonInvalidClass = validationConfig.buttonInvalidClass, 
-        this._formElement = formElement
+        this._buttonInvalidClass = validationConfig.buttonInvalidClass,
+        this._form = form
     }
     
     _showError(input){
@@ -46,18 +46,19 @@ export class FormValidator{
         }
     }
 
+    //слушатели валидации
     _setEventListeners(){
-        this._inputsList = this._form.querySelectorAll(this._inputSelector);
-        // const submitButton = form.querySelector(this._submitButtonSelector);
+        this._inputsList = this._form.querySelectorAll(".popup__input");
+        const submitButton = this._form.querySelector(this._submitButtonSelector);
         
-        this._form.addEventListener('submit', (evt) => {
+        this._formElement.addEventListener('submit', (evt) => {
             evt.preventDefault;
         })
     
         this._inputsList.forEach((input) => {
             input.addEventListener('input', () => {
                 this._checkInputValidity(input);
-                this._setButtonState(this._from.checkValidity());
+                this._setButtonState(this._formElement.checkValidity());
             });
         });
 
@@ -66,12 +67,13 @@ export class FormValidator{
         })
     }
 
-
+    //запуск валидации
     enableValidation(){
-     this._form = this._formElement.querySelectorAll(this._formSelector);
-     this._submitButton = this._form.querySelector(this._submitButtonSelector);
+      this._formElement = this._form.querySelector(this._formSelector);
+      this._submitButton = this._formElement.querySelector(this._submitButtonSelector);
 
-        this._setButtonState(this._form.checkValidity());
-        this._setEventListeners();
+      this._setButtonState(this._formElement.checkValidity());
+      this._setEventListeners();
     };
-}
+  }
+
