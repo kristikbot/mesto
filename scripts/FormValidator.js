@@ -52,7 +52,7 @@ export class FormValidator{
         const submitButton = this._form.querySelector(this._submitButtonSelector);
         
         this._formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault;
+            evt.preventDefault();
         })
     
         this._inputsList.forEach((input) => {

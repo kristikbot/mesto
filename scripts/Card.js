@@ -1,7 +1,7 @@
 export class Card {
-    constructor(data, TemplateSelector, composeFullImagePopup) {
-      this._name = data.name;
-      this._link = data.link;
+    constructor(name, link, TemplateSelector, composeFullImagePopup) {
+      this._name = name;
+      this._link = link;
       this._TemplateSelector = TemplateSelector;
       this._clickFullPhoto = composeFullImagePopup;
     } 
@@ -9,11 +9,9 @@ export class Card {
     //находит шаблон для карточки
     _getTemplate() {
       const cardElement = document
-      .querySelector(this._TemplateSelector)
-      .content
-      .querySelector('.element')
-      .cloneNode(true);
-      
+          .querySelector(this._TemplateSelector)
+          .content.querySelector('.element')
+          .cloneNode(true);
       return cardElement;
     };
     
@@ -21,8 +19,8 @@ export class Card {
     generateCard(){
       this._element = this._getTemplate();
       this._setEventListeners();
-      this._element.querySelector('.element__title').textContent = this._name;
-      this._element.querySelector('.element__image').src = this._link;
+      this._element.querySelector(".element__title").textContent = this._name;
+      this._element.querySelector(".element__image").src = this._link;
     
       return  this._element;
     }

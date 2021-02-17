@@ -30,6 +30,8 @@ const inputPlace = document.querySelector("#card-name");
 const inputLink = document.querySelector("#link");
 const buttonSubmit =cardForm.querySelector("#card-submit");
 const cardInputList = cardForm.querySelectorAll(".popup__input");
+const cardsContainer = document.querySelector('.elements');
+const templateCard = document.querySelector('#templateCards');
 
 //const фото попап
 const fullImagePopup = document.querySelector(".popup-image");
@@ -37,77 +39,7 @@ const fullImageCloseBtn = document.querySelector("#popup-image-close");
 const popupImage = fullImagePopup.querySelector(".popup__full-image");
 const fullImageTitle = fullImagePopup.querySelector(".popup__text");
 
-
-//функция открытия попап 
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keyup', closePopupEsc);
-}
-
-//функция закрытия попап 
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keyup', closePopupEsc);
-}
-
-//закрытие попапа overlay click
-popups.forEach((popup) => {
-    popup.addEventListener("click", (evt) => {
-      if (evt.target.classList.contains('popup')) {closePopup(evt.target)}
-      if (evt.target.classList.contains('popup__close')) {closePopup(popup)}
-    }
-    )}
-)
-
-
-//закрытие по Esc
-const closePopupEsc = (evt) => {
-  const activePopup = document.querySelector(".popup_opened");
-  if (evt.key === 'Escape') {closePopup(activePopup)};
-};
-
-buttonOpenEdit.addEventListener('click', ()=> {
-    openPopup(editProfilePopup);
-    openFormHandler();
-    // setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);//валидация кнопки
-    pofileInputList.forEach((input) => {
-     hideError(profileForm, input, validationConfig);//убирает ошибку
-    });
-    const validator = new FormValidator(validationConfig, editProfilePopup);
-    validator.enableValidation();
-});
-  
-//функция открытия попап карточки
-addButton.addEventListener('click', ()=>{
-    openPopup(addCardPopup);
-    cardForm.reset();//сбрасывает недобавленную карточку
-    // setButtonState(buttonSubmit, cardForm.checkValidity(), validationConfig);
-    const validator = new FormValidator(validationConfig, addCardPopup);
-    validator.enableValidation();
-    // hideError(addCardPopup);
-    // cardInputList.forEach((input) => {
-    //   hideError(cardForm, input, validationConfig);//убирает ошибку
-      
-    //  });
-  
-});
-
-//функция которая связывает значение профиля с формой
-function openFormHandler() {
-  inputName.value = profileName.textContent;
-  inputAbout.value = profileAbout.textContent;
-}
-// Находим форму в DOM
-// Обработчик «отправки» формы, 
-function formSubmitHandler (evt) {
-    evt.preventDefault(); 
-    profileName.textContent = inputName.value;
-    profileAbout.textContent = inputAbout.value;
-    closePopup(editProfilePopup);
-}
-profileForm.addEventListener('submit', formSubmitHandler); 
-
-
+//дефолтные карточки
 const initialCards = [
   {
       name: 'Maja Ruznic',
@@ -135,8 +67,61 @@ const initialCards = [
   }
 ]; 
 
-const cardsContainer = document.querySelector('.elements');
-const templateCard = document.querySelector('#templateCards');
+
+//функция открытия попап 
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keyup', closePopupEsc);
+}
+
+//функция закрытия попап 
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keyup', closePopupEsc);
+}
+
+//закрытие попапа overlay click
+popups.forEach((popup) => {
+    popup.addEventListener("click", (evt) => {
+      if (evt.target.classList.contains('popup')) {closePopup(evt.target)}
+      if (evt.target.classList.contains('popup__close')) {closePopup(popup)}
+    }
+    )}
+)
+
+//закрытие по Esc
+const closePopupEsc = (evt) => {
+  const activePopup = document.querySelector(".popup_opened");
+  if (evt.key === 'Escape') {closePopup(activePopup)};
+};
+
+//кнопка изменения профиля
+buttonOpenEdit.addEventListener('click', ()=> {
+    openPopup(editProfilePopup);
+    openFormHandler();
+    // setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);//валидация кнопки
+    pofileInputList.forEach((input) => {
+     hideError(profileForm, input, validationConfig);//убирает ошибку
+    });
+    const validator = new FormValidator(validationConfig, editProfilePopup);
+    validator.enableValidation();
+});
+
+//функция которая связывает значение профиля с формой
+function openFormHandler() {
+  inputName.value = profileName.textContent;
+  inputAbout.value = profileAbout.textContent;
+}
+// Находим форму в DOM
+// Обработчик «отправки» формы, 
+function formSubmitHandler (evt) {
+    evt.preventDefault(); 
+    profileName.textContent = inputName.value;
+    profileAbout.textContent = inputAbout.value;
+    closePopup(editProfilePopup);
+}
+profileForm.addEventListener('submit', formSubmitHandler); 
+
 
 //открыть попап full фото
 const composeFullImagePopup = (name, link)  => {
@@ -148,56 +133,77 @@ const composeFullImagePopup = (name, link)  => {
 
 
 // формируем карточку 
-function composeCard(item)  {
-  const card = new Card(item, "#templateCards", composeFullImagePopup);
-  const cardElement = card.generateCard();
-  cardsContainer.prepend(cardElement);
-  /*const newItem =  templateCard.content.cloneNode(true);
-  const cardTitle = newItem.querySelector(".element__title");
-  const cardImage = newItem.querySelector(".element__image");
-  const cardLike = newItem.querySelector(".element__like");
-  const deleteBtn = newItem.querySelector(".element__delete");
-  cardTitle.textContent = name;
-  cardImage.src = link;
-  cardImage.alt = name;
-  //лайк
-  cardLike.addEventListener("click", () => {
-    cardLike.classList.toggle("element__like-active");
-  });
-  //удалить 
-  deleteBtn.addEventListener("click", deleteCard);
-  //попап full фото
-  cardImage.addEventListener("click", ()=> {
-    composeFullImagePopup(name, link);
-  });
-  return newItem;*/
-};
+// function composeCard(data)  {
+//   const card = new Card(data, "#templateCards", composeFullImagePopup);
+//   const cardElement = card.generateCard();
+//   cardsContainer.prepend(cardElement);
+//   const newItem =  templateCard.content.cloneNode(true);
+//   const cardTitle = newItem.querySelector(".element__title");
+//   const cardImage = newItem.querySelector(".element__image");
+//   const cardLike = newItem.querySelector(".element__like");
+//   const deleteBtn = newItem.querySelector(".element__delete");
+//   cardTitle.textContent = name;
+//   cardImage.src = link;
+//   cardImage.alt = name;
+//   //лайк
+//   cardLike.addEventListener("click", () => {
+//     cardLike.classList.toggle("element__like-active");
+//   });
+//   //удалить 
+//   deleteBtn.addEventListener("click", deleteCard);
+//   //попап full фото
+//   cardImage.addEventListener("click", ()=> {
+//     composeFullImagePopup(name, link);
+//   });
+//   return newItem;
+// };
 
 //отрисовка дефолтных карточек 
 function renderCardList() {
   initialCards.forEach((item) => {
-    composeCard(item);
+    const newCard = new Card(item.name, item.link, "#templateCards", composeFullImagePopup);
+    const cardElement = newCard.generateCard();
+    cardsContainer.append(cardElement);
   });
 }; 
 renderCardList();
 
 //добавление карточки
-function addCard(evt) {
-  evt.preventDefault();
-  const newCard = composeCard({ 
-    link: inputLink.value, 
-    name: inputPlace.value, 
-    TemplateSelector: "#templateCards", 
-    clickFullPhoto: composeFullImagePopup });
-  composeCard(newCard)
+const addCard = (event) => {
+  event.preventDefault();
+
+  const newCard = new Card(inputPlace.value, inputLink.value, "#templateCards", composeFullImagePopup);
+  const cardElement = newCard.generateCard();
+  // cardsContainer.addCard(cardElement);
+  cardsContainer.prepend(cardElement);
   closePopup(addCardPopup);
+
+
+  // const newCard = composeCard({ 
+  //   link: inputLink.value, 
+  //   name: inputPlace.value, 
+  //   TemplateSelector: "#templateCards", 
+  //   clickFullPhoto: composeFullImagePopup });
+  //   composeCard(newCard);
+  // return cardElement;
 };
+
 cardForm.addEventListener('submit', addCard);
 
-/*//Удаление карточки
-function deleteCard(event)  {
-  event.target.closest(".element").remove();
-}*/
+//кнопка открытия попап новой карточки
+addButton.addEventListener('click', ()=>{
+  openPopup(addCardPopup);
+  cardForm.reset();//сбрасывает недобавленную карточку
+  // setButtonState(buttonSubmit, cardForm.checkValidity(), validationConfig);
+  const validator = new FormValidator(validationConfig, addCardPopup);
+  validator.enableValidation();
+  // hideError(addCardPopup);
+  // cardInputList.forEach((input) => {
+  //   hideError(cardForm, input, validationConfig);//убирает ошибку
+    
+  //  });
+
+});
 
 // enableValidation(validationConfig);
 // //валидация форм
