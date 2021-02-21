@@ -1,6 +1,6 @@
 
 import {Card} from "./Card.js";
-import {validationConfig, FormValidator} from "./FormValidator.js";
+import {FormValidator} from "./FormValidator.js";
 // import {FormValidator}  from "./FormValidator.js";
 
 //универсальные const
@@ -66,6 +66,14 @@ const initialCards = [
       link: 'https://i.pinimg.com/564x/66/04/39/6604391f91e0e91e93e4243a63862437.jpg'
   }
 ]; 
+
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__save',
+  inputInvalidClass: 'popup__input_state_invalid',
+  buttonInvalidClass: 'popup__save_state_invalid', 
+};
 
 
 //функция открытия попап 
@@ -145,7 +153,7 @@ renderCardList();
 //добавление карточки
 const addCard = (event) => {
   event.preventDefault();
-
+  // inputPlace.value, inputLink.value
   const newCard = new Card(inputPlace.value, inputLink.value, "#templateCards", composeFullImagePopup);
   const cardElement = newCard.generateCard();
   cardsContainer.prepend(cardElement);

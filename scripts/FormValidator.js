@@ -1,11 +1,3 @@
-export const validationConfig = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__save',
-    inputInvalidClass: 'popup__input_state_invalid',
-    buttonInvalidClass: 'popup__save_state_invalid', 
-};
-
 export class FormValidator{
     constructor(validationConfig, form) {
         this._formSelector  = validationConfig.formSelector,
@@ -49,7 +41,6 @@ export class FormValidator{
     //слушатели валидации
     _setEventListeners(){
         this._inputsList = this._form.querySelectorAll(".popup__input");
-        const submitButton = this._form.querySelector(this._submitButtonSelector);
         
         this._formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
@@ -60,11 +51,14 @@ export class FormValidator{
                 this._checkInputValidity(input);
                 this._setButtonState(this._formElement.checkValidity());
             });
+
         });
 
         this._form.addEventListener('reset', () => {
-            this._hideError();
-        })
+            this._inputsList.forEach((input) => {
+                this._hideError(input);
+              });
+            })
     }
 
     //запуск валидации
