@@ -42,14 +42,14 @@ export class FormValidator{
     _setEventListeners(){
         this._inputsList = this._form.querySelectorAll(".popup__input");
         
-        this._formElement.addEventListener('submit', (evt) => {
+        this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
         })
     
         this._inputsList.forEach((input) => {
             input.addEventListener('input', () => {
                 this._checkInputValidity(input);
-                this._setButtonState(this._formElement.checkValidity());
+                this._setButtonState(this._form.checkValidity());
             });
 
         });
@@ -63,10 +63,10 @@ export class FormValidator{
 
     //запуск валидации
     enableValidation(){
-      this._formElement = this._form.querySelector(this._formSelector);
-      this._submitButton = this._formElement.querySelector(this._submitButtonSelector);
+    //   this._formElement = this._form.querySelector(this._formSelector);
+      this._submitButton = this._form.querySelector(this._submitButtonSelector);
 
-      this._setButtonState(this._formElement.checkValidity());
+      this._setButtonState(this._form.checkValidity());
       this._setEventListeners();
     };
   }

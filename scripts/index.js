@@ -79,11 +79,7 @@ buttonOpenEdit.addEventListener('click', ()=> {
     openPopup(editProfilePopup);
     openFormHandler();
     
-    // setButtonState(buttonSubmitEditProfile, profileForm.checkValidity(), validationConfig);//валидация кнопки
-    // pofileInputList.forEach((input) => {
-    //  hideError(profileForm, input, validationConfig);//убирает ошибку
-    // });
-    const validator = new FormValidator(validationConfig, editProfilePopup);
+    const validator = new FormValidator(validationConfig, profileForm);
     validator.enableValidation();
 });
 
@@ -94,13 +90,13 @@ function openFormHandler() {
 }
 // Находим форму в DOM
 // Обработчик «отправки» формы, 
-function formSubmitHandler (evt) {
+function handleProfileSubmit (evt) {
     evt.preventDefault(); 
     profileName.textContent = inputName.value;
     profileAbout.textContent = inputAbout.value;
     closePopup(editProfilePopup);
 }
-profileForm.addEventListener('submit', formSubmitHandler); 
+profileForm.addEventListener('submit', handleProfileSubmit); 
 
 
 //открыть попап full фото
@@ -112,7 +108,7 @@ const composeFullImagePopup = (name, link)  => {
 };
 
 //отрисовка дефолтных карточек 
-function renderCardList() {
+const renderCardList  = () => {
   initialCards.forEach((item) => {
     const newCard = new Card(item.name, item.link, "#templateCards", composeFullImagePopup);
     const cardElement = newCard.generateCard();
@@ -138,6 +134,6 @@ addButton.addEventListener('click', ()=>{
   openPopup(addCardPopup);
   cardForm.reset();//сбрасывает недобавленную карточку
 
-  const validator = new FormValidator(validationConfig, addCardPopup);
+  const validator = new FormValidator(validationConfig, cardForm);
   validator.enableValidation();
 });
